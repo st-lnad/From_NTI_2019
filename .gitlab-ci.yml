@@ -1,0 +1,13 @@
+variables:
+  GIT_DEPTH: "1"
+  GIT_STRATEGY: clone
+
+.run-checker:
+  script:
+    - /opt/parity/parity-indocker.sh
+    - /opt/gasprice/gasprice-indocker.sh
+    - checker-final2019
+
+test:
+  extends: .run-checker
+  image: $CHECKER_IMAGE
